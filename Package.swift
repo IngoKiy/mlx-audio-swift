@@ -17,7 +17,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ESpeakNG",
-            path: "mlx_audio_swift/tts/MLXAudio/Kokoro/Frameworks/ESpeakNG.xcframework"
+            path: "MLXAudio/Kokoro/Frameworks/ESpeakNG.xcframework"
         ),
         .target(
             name: "MLXAudio",
@@ -27,7 +27,7 @@ let package = Package(
                 .product(name: "Transformers", package: "swift-transformers"),
                 "ESpeakNG"
             ],
-            path: "mlx_audio_swift/tts/MLXAudio",
+            path: "MLXAudio",
             exclude: ["Preview Content", "Assets.xcassets", "MLXAudioApp.swift", "MLXAudio.entitlements"],
             resources: [
                 .process("Kokoro/Resources") // Kokoro voices
@@ -36,7 +36,7 @@ let package = Package(
         .testTarget(
             name: "MLXAudioTests",
             dependencies: ["MLXAudio"],
-            path: "mlx_audio_swift/tts/Tests"
+            path: "Tests"
         ),
     ]
 )
