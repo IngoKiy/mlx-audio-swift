@@ -11,6 +11,7 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(url: "https://github.com/ml-explore/mlx-swift.git", branch: "main"),
         .package(url: "https://github.com/ml-explore/mlx-swift-lm.git", branch: "main"),
         .package(url: "https://github.com/huggingface/swift-transformers", .upToNextMinor(from: "1.1.0")),
     ],
@@ -22,6 +23,10 @@ let package = Package(
         .target(
             name: "MLXAudio",
             dependencies: [
+                .product(name: "MLX", package: "mlx-swift"),
+                .product(name: "MLXFast", package: "mlx-swift"),
+                .product(name: "MLXNN", package: "mlx-swift"),
+                .product(name: "MLXRandom", package: "mlx-swift"),
                 .product(name: "MLXLMCommon", package: "mlx-swift-lm"),
                 .product(name: "MLXLLM", package: "mlx-swift-lm"),
                 .product(name: "Transformers", package: "swift-transformers"),
